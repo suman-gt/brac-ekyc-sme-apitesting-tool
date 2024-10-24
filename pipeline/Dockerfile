@@ -15,5 +15,5 @@ RUN ln -s /shared_storage /app/shared
 COPY --from=build /app/out .
 COPY APITestingTool/* /app/
 
-EXPOSE 5000
+EXPOSE 5010
 ENTRYPOINT ["dotnet", "APITestingTool.dll"]
