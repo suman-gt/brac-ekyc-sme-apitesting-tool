@@ -4,7 +4,9 @@ WORKDIR /app
 COPY . .
 RUN dotnet restore 'APITestingTool/APITestingTool.csproj'
 RUN dotnet publish 'APITestingTool/APITestingTool.csproj' -c Release -o out
-
+RUN apt-get update && apt-get install -y \
+    curl \
+    telnet
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
