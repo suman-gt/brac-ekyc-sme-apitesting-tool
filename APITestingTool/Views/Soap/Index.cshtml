@@ -1,0 +1,34 @@
+﻿@model APITestingTool.Models.SoapRequestModel // Update with your actual namespace
+
+@{
+    ViewBag.Title = "SOAP API Call";
+}
+
+<h2>SOAP API Call</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>SOAP Namespace:</label>
+        @Html.TextAreaFor(m => m.SoapNamespace, new { rows = 2, cols = 100 })
+    </div>
+    <br />
+    <br />
+    <div>
+        <label>SOAP Action:</label>
+        @Html.TextAreaFor(m => m.SoapAction, new { rows = 2, cols = 100 })
+    </div>
+    <br />
+    <br />
+    <div>
+        <label>SOAP Body:</label>
+        @Html.TextAreaFor(m => m.SoapBody, new { rows = 10, cols = 100 })
+    </div>
+    <button type="submit">Call SOAP API</button>
+}
+
+@if (!string.IsNullOrEmpty(Model.Response))
+{
+    <h3>Response:</h3>
+    <pre>@Model.Response</pre>
+}
